@@ -6,6 +6,7 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "ramda": "^0.27.1",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -13,6 +14,7 @@
     "@oclif/plugin-help": "^3",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.14",
+    "@types/ramda": "^0.27.14",
     "eslint": "^6.8.0",
     "eslint-config-oclif": "^3.1",
     "eslint-config-vtex": "^12.3.0",
@@ -26,7 +28,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.8.2",
-    "vtex": "^2.107.0"
+    "vtex": "^2.108.0-beta.2"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -47,7 +49,12 @@
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topics": {
+      "workspace": {
+        "description": "Workspace commands. Run 'vtex workspace' to see all subcommands"
+      }
+    }
   },
   "repository": "vtex/cli-plugin-workspace",
   "scripts": {
