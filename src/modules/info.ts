@@ -3,8 +3,7 @@ import { createWorkspacesClient, SessionManager, logger } from 'vtex'
 
 const { get } = createWorkspacesClient()
 
-// @ts-ignore
-const pretty = (p) => (p ? chalk.green('true') : chalk.red('false'))
+const pretty = (p: boolean) => (p ? chalk.green('true') : chalk.red('false'))
 
 export default async () => {
   const { account, workspace: currentWorkspace } = SessionManager.getSingleton()

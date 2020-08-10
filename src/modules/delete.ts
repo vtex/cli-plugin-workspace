@@ -1,6 +1,6 @@
 import { Workspaces } from '@vtex/api'
 import chalk from 'chalk'
-import { contains, flatten, head, tail } from 'ramda'
+import { contains, flatten, tail } from 'ramda'
 import { createWorkspacesClient, SessionManager, logger, promptConfirm, workspaceUse } from 'vtex'
 
 const promptWorkspaceDeletion = (names: string[]) =>
@@ -12,22 +12,20 @@ const promptWorkspaceDeletion = (names: string[]) =>
 export const deleteWorkspaces = async (
   workspacesClient: Workspaces,
   account: string,
-  names = []
+  names: string[] = []
 ): Promise<string[]> => {
-  const name = head(names)
-  const decNames = tail(names)
-
   if (names.length === 0) {
     return []
   }
 
+  const [name] = names
+  const decNames = tail(names)
+
   logger.debug('Starting to delete workspace', name)
   try {
-    // @ts-ignore
     await workspacesClient.delete(account, name)
     logger.info(`Workspace ${chalk.green(name)} deleted ${chalk.green('successfully')}`)
 
-    // @ts-ignore
     return flatten([name, await deleteWorkspaces(workspacesClient, account, decNames)])
   } catch (err) {
     logger.warn(`Workspace ${chalk.green(name)} was ${chalk.red('not')} deleted`)
@@ -37,10 +35,9 @@ export const deleteWorkspaces = async (
   }
 }
 
-// @ts-ignore
-export default async (names: string[], options) => {
-  const preConfirm = options.y || options.yes
-  const force = options.f || options.force
+export default async (names: string[], options: WorkspacesDeleteOptions) => {
+  const preConfirm = options.yes
+  const { force } = options
   const { account, workspace } = SessionManager.getSingleton()
 
   logger.debug(`Deleting workspace${names.length > 1 ? 's' : ''}:`, names.join(', '))
@@ -56,7 +53,6 @@ export default async (names: string[], options) => {
   }
 
   const workspacesClient = createWorkspacesClient()
-  // @ts-ignore
   const deleted = await deleteWorkspaces(workspacesClient, account, names)
 
   if (contains(workspace, deleted)) {
