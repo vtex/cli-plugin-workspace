@@ -1,4 +1,4 @@
-# VTEX CLI Plugin Template
+# VTEX CLI Plugin Workspace
 
 Extend the `vtex` toolbelt!
 
@@ -15,21 +15,21 @@ Extend the `vtex` toolbelt!
 For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-template)
+![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-workspace)
 
 <!-- toc -->
-* [VTEX CLI Plugin Template](#vtex-cli-plugin-template)
+* [VTEX CLI Plugin Workspace](#vtex-cli-plugin-workspace)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @vtex/cli-plugin-template
+$ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-template/0.0.0 linux-x64 node-v12.18.3
+@vtex/cli-plugin-workspace/0.0.1 linux-x64 node-v12.18.3
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -38,27 +38,185 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`oclif-example workspace:create [WORKSPACENAME]`](#oclif-example-workspacecreate-workspacename)
+* [`oclif-example workspace:delete WORKSPACE1 [ITHWORKSPACE]`](#oclif-example-workspacedelete-workspace1-ithworkspace)
+* [`oclif-example workspace:info`](#oclif-example-workspaceinfo)
+* [`oclif-example workspace:list`](#oclif-example-workspacelist)
+* [`oclif-example workspace:promote`](#oclif-example-workspacepromote)
+* [`oclif-example workspace:reset [WORKSPACENAME]`](#oclif-example-workspacereset-workspacename)
+* [`oclif-example workspace:status [WORKSPACENAME]`](#oclif-example-workspacestatus-workspacename)
+* [`oclif-example workspace:use WORKSPACE`](#oclif-example-workspaceuse-workspace)
 
-## `oclif-example hello [FILE]`
+## `oclif-example workspace:create [WORKSPACENAME]`
 
-describe the command here
+Create a new workspace
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ oclif-example workspace:create [WORKSPACENAME]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-  -v, --verbose    Show debug level logs
-  --trace          Ensure all requests to VTEX IO are traced
+  -h, --help        show CLI help
+  -p, --production  Create a production workspace
+  -v, --verbose     Show debug level logs
+  --trace           Ensure all requests to VTEX IO are traced
 
 EXAMPLE
-  $ oclif-example hello
-  hello world from ./src/hello.ts!
+  vtex workspace create workspaceName
 ```
 
-_See code: [build/commands/hello.ts](https://github.com/vtex/cli-plugin-template/blob/v0.0.0/build/commands/hello.ts)_
+_See code: [build/commands/workspace/create.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/create.ts)_
+
+## `oclif-example workspace:delete WORKSPACE1 [ITHWORKSPACE]`
+
+Delete one or many workspaces
+
+```
+USAGE
+  $ oclif-example workspace:delete WORKSPACE1 [ITHWORKSPACE]
+
+OPTIONS
+  -f, --force    Ignore if you're currently using the workspace
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  -y, --yes      Answer yes to confirmation prompts
+  --trace        Ensure all requests to VTEX IO are traced
+
+EXAMPLES
+  vtex workspace delete workspaceName
+  vtex workspace delete workspaceName1 workspaceName2
+```
+
+_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/delete.ts)_
+
+## `oclif-example workspace:info`
+
+Display information about the current workspace
+
+```
+USAGE
+  $ oclif-example workspace:info
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+EXAMPLE
+  vtex workspace info
+```
+
+_See code: [build/commands/workspace/info.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/info.ts)_
+
+## `oclif-example workspace:list`
+
+List workspaces on this account
+
+```
+USAGE
+  $ oclif-example workspace:list
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+ALIASES
+  $ oclif-example workspace:ls
+
+EXAMPLES
+  vtex workspace list
+  vtex workspace ls
+```
+
+_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/list.ts)_
+
+## `oclif-example workspace:promote`
+
+Promote this workspace to master
+
+```
+USAGE
+  $ oclif-example workspace:promote
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+ALIASES
+  $ oclif-example promote
+
+EXAMPLES
+  vtex workspace promote
+  vtex promote
+```
+
+_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/promote.ts)_
+
+## `oclif-example workspace:reset [WORKSPACENAME]`
+
+Delete and recreate a workspace
+
+```
+USAGE
+  $ oclif-example workspace:reset [WORKSPACENAME]
+
+OPTIONS
+  -h, --help        show CLI help
+  -p, --production  Re-create the workspace as a production one
+  -v, --verbose     Show debug level logs
+  -y, --yes         Answer yes to confirmation prompts
+  --trace           Ensure all requests to VTEX IO are traced
+
+EXAMPLES
+  vtex workspace reset
+  vtex workspace reset workspaceName
+```
+
+_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/reset.ts)_
+
+## `oclif-example workspace:status [WORKSPACENAME]`
+
+Display information about a workspace
+
+```
+USAGE
+  $ oclif-example workspace:status [WORKSPACENAME]
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+EXAMPLE
+  vtex workspace status
+```
+
+_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/status.ts)_
+
+## `oclif-example workspace:use WORKSPACE`
+
+Use a workspace to perform operations
+
+```
+USAGE
+  $ oclif-example workspace:use WORKSPACE
+
+OPTIONS
+  -h, --help        show CLI help
+  -p, --production  Create the workspace as production if it does not exist or is reset
+  -r, --reset       Resets workspace before using it
+  -v, --verbose     Show debug level logs
+  --trace           Ensure all requests to VTEX IO are traced
+
+ALIASES
+  $ oclif-example use
+
+EXAMPLES
+  vtex workspace use workspaceName
+  vtex use workspaceName
+```
+
+_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.0.1/build/commands/workspace/use.ts)_
 <!-- commandsstop -->
