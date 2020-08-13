@@ -8619,10 +8619,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vtex@^2.108.0-beta.2:
-  version "2.108.0-beta.2"
-  resolved "https://registry.yarnpkg.com/vtex/-/vtex-2.108.0-beta.2.tgz#dfac44c12029cfd661fe9ad0322d9c66d62f26e7"
-  integrity sha512-b5IZCNcCMSMQ4gQhyFTCHlx+x8NF9SuPsXksRVGmdqTlfav1UaUUXMcqsu2FcB4NZRgPjuo5KRoi0hQPBhsW4A==
+vtex@^2.109.0-beta:
+  version "2.109.0-beta"
+  resolved "https://registry.yarnpkg.com/vtex/-/vtex-2.109.0-beta.tgz#3d22b332998b31cce77711495b962c373e32cee6"
+  integrity sha512-kOeTwqjEQ73vcFDVrzkTziqvgNeAWl+/v4dv/OWBtrH2Oprr8qVlMkeYmzanwrAvAEltm78k6/38mct+Ar0Elw==
   dependencies:
     "@oclif/command" "^1.0.0"
     "@oclif/config" "^1.0.0"
