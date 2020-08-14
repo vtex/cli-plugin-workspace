@@ -1,3 +1,4 @@
+import { Messages } from '../lib/constants/Messages'
 import axios from 'axios'
 import boxen from 'boxen'
 import ora from 'ora'
@@ -11,7 +12,6 @@ import {
   authUrl,
   workspaceUse,
   COLORS,
-  Messages,
 } from 'vtex'
 
 const { checkForConflicts } = VBase.createClient()
