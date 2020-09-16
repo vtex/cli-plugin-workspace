@@ -1,5 +1,5 @@
 import { Messages } from '../lib/constants/Messages'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import boxen from 'boxen'
 import ora from 'ora'
 import {
@@ -51,6 +51,27 @@ const isPromotable = async (workspace: string) => {
   spinner.succeed()
 }
 
+const parseInternalBucket = (internalBucket: string): string => {
+  const [vendor, app, bucket] = internalBucket.split('.')
+
+  return Messages.CONFLICTING_BUCKET_DESCRIPTOR(bucket, `${vendor}.${app}`)
+}
+
+const parseConflictMessage = (message: string): string[] => {
+  const [, buckets] = message.split(':')
+  const internalBuckets = buckets.split(',').map((bucket) => bucket.trim())
+
+  return internalBuckets.map(parseInternalBucket)
+}
+
+const handleConflictOnPromote = (workspace: string, e: AxiosError) => {
+  if (e.response?.status !== 409) throw e
+
+  const buckets = parseConflictMessage(e.response.data.message)
+
+  throw createFlowIssueError(Messages.PROMOTE_CONFLICT_ERROR(workspace, buckets))
+}
+
 const handlePromoteSuccess = async () => {
   logger.info(Messages.PROMOTE_SUCCESS(currentWorkspace))
 
@@ -67,7 +88,7 @@ const handlePromoteSuccess = async () => {
 const promptPromoteConfirm = (workspace: string): Promise<boolean> =>
   promptConfirm(Messages.PROMOTE_PROMPT_CONFIRM(workspace), true)
 
-export default async () => {
+export default async (conflictResolutionStrategy: string) => {
   logger.debug(Messages.PROMOTE_INIT, currentWorkspace)
 
   await isPromotable(currentWorkspace)
@@ -80,5 +101,7 @@ export default async () => {
     return
   }
 
-  await promote(account, currentWorkspace).then(handlePromoteSuccess)
+  await promote(account, currentWorkspace, conflictResolutionStrategy)
+    .then(handlePromoteSuccess)
+    .catch((e: AxiosError) => handleConflictOnPromote(currentWorkspace, e))
 }
