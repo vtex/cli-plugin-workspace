@@ -36,4 +36,19 @@ export const Messages = {
       'vtex workspace create <workspace> --production'
     )} to create a production workspace`,
   PROMOTE_SPINNER_START: 'Preparing the workspace to be promoted',
+  PROMOTE_CONFLICT_ERROR: (workspace: string, buckets: string[]) =>
+    `${
+      `Couldn't promote workspace ${ColorifyConstants.ID(workspace)}.\n` +
+      `  There are conflicts between ${ColorifyConstants.ID(workspace)} and ${ColorifyConstants.ID(
+        'master'
+      )} in the following data:\n\n`
+    }${buckets.map((bucket) => `    ${bucket}`).join('\n')}\n\n` +
+    `  If you have changed data related to the apps above, any request on workspace ${ColorifyConstants.ID(
+      workspace
+    )} that interacts with the conflicting data may solve the problem.\n` +
+    `  Run ${ColorifyConstants.COMMAND_OR_VTEX_REF(
+      'vtex workspace promote --help'
+    )} to see alternatives conflict resolution strategies for promoting workspaces.`,
+  CONFLICTING_BUCKET_DESCRIPTOR: (bucket: string, app: string) =>
+    `• ${ColorifyConstants.ID(bucket)} from app ${ColorifyConstants.ID(app)}`,
 }
