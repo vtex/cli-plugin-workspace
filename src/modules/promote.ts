@@ -51,6 +51,19 @@ const isPromotable = async (workspace: string) => {
   spinner.succeed()
 }
 
+const handlePromoteSuccess = async () => {
+  logger.info(Messages.PROMOTE_SUCCESS(currentWorkspace))
+
+  console.log(
+    boxen(Messages.PROMOTE_ASK_FEEDBACK, {
+      padding: 1,
+      margin: 1,
+    })
+  )
+
+  await workspaceUse('master')
+}
+
 const promptPromoteConfirm = (workspace: string): Promise<boolean> =>
   promptConfirm(Messages.PROMOTE_PROMPT_CONFIRM(workspace), true)
 
@@ -67,15 +80,5 @@ export default async () => {
     return
   }
 
-  await promote(account, currentWorkspace)
-  logger.info(Messages.PROMOTE_SUCCESS(currentWorkspace))
-
-  console.log(
-    boxen(Messages.PROMOTE_ASK_FEEDBACK, {
-      padding: 1,
-      margin: 1,
-    })
-  )
-
-  await workspaceUse('master')
+  await promote(account, currentWorkspace).then(handlePromoteSuccess)
 }
