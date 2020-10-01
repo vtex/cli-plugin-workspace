@@ -51,25 +51,24 @@ const isPromotable = async (workspace: string) => {
   spinner.succeed()
 }
 
-const parseInternalBucket = (internalBucket: string): string => {
+const parseInternalBucket = (internalBucket: string): string | null => {
   const [vendor, app, bucket] = internalBucket.split('.')
 
-  return Messages.CONFLICTING_BUCKET_DESCRIPTOR(bucket, `${vendor}.${app}`)
+  return bucket != null ? Messages.CONFLICTING_BUCKET_DESCRIPTOR(bucket, `${vendor}.${app}`) : null
 }
 
 const parseConflictMessage = (message: string): string[] => {
   const [, buckets] = message.split(':')
   const internalBuckets = buckets.split(',').map((bucket) => bucket.trim())
 
-  return internalBuckets.map(parseInternalBucket)
+  return internalBuckets.map(parseInternalBucket).filter((bucket) => bucket != null) as string[]
 }
 
 const handleConflictOnPromote = (workspace: string, e: AxiosError) => {
   if (e.response?.status !== 409) throw e
-
   const buckets = parseConflictMessage(e.response.data.message)
 
-  throw createFlowIssueError(Messages.PROMOTE_CONFLICT_ERROR(workspace, buckets))
+  console.log(Messages.PROMOTE_CONFLICT_ERROR(workspace, buckets))
 }
 
 const handlePromoteSuccess = async () => {
