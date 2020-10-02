@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/0.0.2 linux-x64 node-v12.18.3
+@vtex/cli-plugin-workspace/0.0.2 linux-x64 node-v12.18.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -140,9 +140,21 @@ USAGE
   $ oclif-example workspace:promote
 
 OPTIONS
-  -h, --help     show CLI help
-  -v, --verbose  Show debug level logs
-  --trace        Ensure all requests to VTEX IO are traced
+  -h, --help
+      show CLI help
+
+  -v, --verbose
+      Show debug level logs
+
+  --conflict=master|mine|abort
+      [default: master] Defines how to handle data conflict between workspaces.
+      - master: Keeps data from master unchanged when there are conflicts. Workspace conflicting data is discarded.
+      - mine: Overrides the data on master with the one of the workspace when there is conflict. Any changes on 
+      conflicting data made on master will be lost.
+      - abort: Aborts the workspace promotion when any data conflict is detected.
+
+  --trace
+      Ensure all requests to VTEX IO are traced
 
 ALIASES
   $ oclif-example promote
