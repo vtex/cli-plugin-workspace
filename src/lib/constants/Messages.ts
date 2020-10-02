@@ -51,7 +51,7 @@ export const Messages = {
         `${ColorifyConstants.ID(workspace)} that interacts with the conficting data.`
     )}` +
     `\n  ` +
-    `If you do so you allow the service that handles the data to resolve any conflicts before the workspace promotion.` +
+    `By doing so, you allow the service that handles the data to resolve any conflicts before the workspace promotion.` +
     `\n\n  ` +
     `To see alternatives conflict resolution strategies for promoting workspaces, ` +
     `run ${ColorifyConstants.COMMAND_OR_VTEX_REF('vtex workspace promote --help')}.` +
