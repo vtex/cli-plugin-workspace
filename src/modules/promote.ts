@@ -1,5 +1,5 @@
 import { Messages } from '../lib/constants/Messages'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import boxen from 'boxen'
 import ora from 'ora'
 import {
@@ -51,10 +51,43 @@ const isPromotable = async (workspace: string) => {
   spinner.succeed()
 }
 
+const parseInternalBucket = (internalBucket: string): string | null => {
+  const [vendor, app, bucket] = internalBucket.split('.')
+
+  return bucket != null ? Messages.CONFLICTING_BUCKET_DESCRIPTOR(bucket, `${vendor}.${app}`) : null
+}
+
+const parseConflictMessage = (message: string): string[] => {
+  const [, buckets] = message.split(':')
+  const internalBuckets = buckets.split(',').map((bucket) => bucket.trim())
+
+  return internalBuckets.map(parseInternalBucket).filter((bucket) => bucket != null) as string[]
+}
+
+const handleConflictOnPromote = (workspace: string, e: AxiosError) => {
+  if (e.response?.status !== 409) throw e
+  const buckets = parseConflictMessage(e.response.data.message)
+
+  console.log(Messages.PROMOTE_CONFLICT_ERROR(workspace, buckets))
+}
+
+const handlePromoteSuccess = async () => {
+  logger.info(Messages.PROMOTE_SUCCESS(currentWorkspace))
+
+  console.log(
+    boxen(Messages.PROMOTE_ASK_FEEDBACK, {
+      padding: 1,
+      margin: 1,
+    })
+  )
+
+  await workspaceUse('master')
+}
+
 const promptPromoteConfirm = (workspace: string): Promise<boolean> =>
   promptConfirm(Messages.PROMOTE_PROMPT_CONFIRM(workspace), true)
 
-export default async () => {
+export default async (conflictResolutionStrategy: string) => {
   logger.debug(Messages.PROMOTE_INIT, currentWorkspace)
 
   await isPromotable(currentWorkspace)
@@ -67,15 +100,7 @@ export default async () => {
     return
   }
 
-  await promote(account, currentWorkspace)
-  logger.info(Messages.PROMOTE_SUCCESS(currentWorkspace))
-
-  console.log(
-    boxen(Messages.PROMOTE_ASK_FEEDBACK, {
-      padding: 1,
-      margin: 1,
-    })
-  )
-
-  await workspaceUse('master')
+  await promote(account, currentWorkspace, conflictResolutionStrategy)
+    .then(handlePromoteSuccess)
+    .catch((e: AxiosError) => handleConflictOnPromote(currentWorkspace, e))
 }
