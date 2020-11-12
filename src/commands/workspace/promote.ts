@@ -4,7 +4,7 @@ import workspacePromote from '../../modules/promote'
 import { CustomCommand } from 'vtex'
 
 const conflictFlagMapping: { [flag: string]: string } = {
-  master: 'Masterwins',
+  master: 'MasterWins',
   mine: 'MineWins',
   abort: 'Abort',
 }
@@ -20,7 +20,6 @@ const conflictResolutionFlag = flags.string({
   description: conflictFlagDescription,
   options: ['master', 'mine', 'abort'],
   default: 'master',
-  parse: (flag) => conflictFlagMapping[flag],
 })
 
 export default class WorkspacePromote extends CustomCommand {
@@ -42,6 +41,6 @@ export default class WorkspacePromote extends CustomCommand {
       flags: { conflict },
     } = this.parse(WorkspacePromote)
 
-    await workspacePromote(conflict)
+    await workspacePromote(conflictFlagMapping[conflict])
   }
 }
