@@ -147,7 +147,7 @@ OPTIONS
       Show debug level logs
 
   --conflict=master|mine|abort
-      Defines how to handle data conflict between workspaces.
+      [default: master] Defines how to handle data conflict between workspaces.
       - master: Keeps data from master unchanged when there are conflicts. Workspace conflicting data is discarded.
       - mine: Overrides the data on master with the one of the workspace when there is conflict. Any changes on 
       conflicting data made on master will be lost.
