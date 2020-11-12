@@ -19,7 +19,6 @@ const conflictFlagDescription = [
 const conflictResolutionFlag = flags.string({
   description: conflictFlagDescription,
   options: ['master', 'mine', 'abort'],
-  default: conflictFlagMapping.master,
   parse: (flag) => conflictFlagMapping[flag],
 })
 
@@ -42,6 +41,6 @@ export default class WorkspacePromote extends CustomCommand {
       flags: { conflict },
     } = this.parse(WorkspacePromote)
 
-    await workspacePromote(conflict)
+    await workspacePromote(conflict ?? conflictFlagMapping.master)
   }
 }
