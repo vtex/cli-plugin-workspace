@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-11-11
+### Changed
+- Better mapping for workspace promote flags
+
+## [0.1.1] - 2020-11-11
+### Fixed
+- Fix `workspace promote` for default value
+
 ## [0.1.0] - 2020-10-05
 - [Command] Add `--conflict` flag to `workspace promote` command.
 
