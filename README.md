@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/0.1.0 linux-x64 node-v12.18.4
+@vtex/cli-plugin-workspace/0.1.0 linux-x64 node-v12.19.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -147,7 +147,7 @@ OPTIONS
       Show debug level logs
 
   --conflict=master|mine|abort
-      [default: master] Defines how to handle data conflict between workspaces.
+      [default: MasterWins] Defines how to handle data conflict between workspaces.
       - master: Keeps data from master unchanged when there are conflicts. Workspace conflicting data is discarded.
       - mine: Overrides the data on master with the one of the workspace when there is conflict. Any changes on 
       conflicting data made on master will be lost.
