@@ -18,8 +18,8 @@ const conflictFlagDescription = [
 
 const conflictResolutionFlag = flags.string({
   description: conflictFlagDescription,
-  options: ['master', 'mine', 'abort'],
-  default: 'master',
+  options: ['masterWins', 'mineWins', 'abort'],
+  default: 'masterWins',
   parse: (flag) => conflictFlagMapping[flag],
 })
 
