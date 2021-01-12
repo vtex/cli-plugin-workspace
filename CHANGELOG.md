@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Remove `vtex workspace create` && `vtex workspace list`
+- Remove `vtex workspace create` && `vtex workspace info`
 ## [0.1.2] - 2020-11-11
 ### Changed
 - Better mapping for workspace promote flags
