@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/0.1.2 linux-x64 node-v12.20.0
+@vtex/cli-plugin-workspace/0.1.2 linux-x64 node-v12.20.1
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
