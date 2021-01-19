@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/0.1.2 linux-x64 node-v12.20.1
+@vtex/cli-plugin-workspace/1.0.0-beta.0 linux-x64 node-v12.20.1
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -65,7 +65,7 @@ EXAMPLES
   vtex workspace delete workspaceName1 workspaceName2
 ```
 
-_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/delete.ts)_
+_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/delete.ts)_
 
 ## `oclif-example workspace:list`
 
@@ -88,7 +88,7 @@ EXAMPLES
   vtex workspace ls
 ```
 
-_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/list.ts)_
+_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/list.ts)_
 
 ## `oclif-example workspace:promote`
 
@@ -123,7 +123,7 @@ EXAMPLES
   vtex promote
 ```
 
-_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/promote.ts)_
+_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/promote.ts)_
 
 ## `oclif-example workspace:reset [WORKSPACENAME]`
 
@@ -145,7 +145,7 @@ EXAMPLES
   vtex workspace reset workspaceName
 ```
 
-_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/reset.ts)_
+_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/reset.ts)_
 
 ## `oclif-example workspace:status [WORKSPACENAME]`
 
@@ -164,7 +164,7 @@ EXAMPLE
   vtex workspace status
 ```
 
-_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/status.ts)_
+_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/status.ts)_
 
 ## `oclif-example workspace:use WORKSPACE`
 
@@ -189,5 +189,5 @@ EXAMPLES
   vtex use workspaceName
 ```
 
-_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v0.1.2/build/commands/workspace/use.ts)_
+_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.0-beta.0/build/commands/workspace/use.ts)_
 <!-- commandsstop -->
