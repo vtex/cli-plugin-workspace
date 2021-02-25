@@ -1,12 +1,17 @@
-import { CustomCommand } from 'vtex'
+import { CustomCommand, ColorifyConstants } from 'vtex'
 import workspaceList from '../../modules/list'
 
 export default class WorkspaceList extends CustomCommand {
-  static description = 'List workspaces on this account'
+  static description = `Lists all ${ColorifyConstants.ID('workspaces')} of the current ${ColorifyConstants.ID(
+    'account'
+  )}.`
 
   static aliases = ['workspace:ls']
 
-  static examples = ['vtex workspace list', 'vtex workspace ls']
+  static examples = [
+    `${ColorifyConstants.COMMAND_OR_VTEX_REF('vtex workspace list')}`,
+    `${ColorifyConstants.COMMAND_OR_VTEX_REF('vtex workspace ls')}`,
+  ]
 
   static flags = {
     ...CustomCommand.globalFlags,

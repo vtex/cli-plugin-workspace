@@ -52,7 +52,7 @@
     ],
     "topics": {
       "workspace": {
-        "description": "Workspace commands. Run 'vtex workspace' to see all subcommands"
+        "description": "Manages workspaces. Run 'vtex workspace' to see all 9 subcommands."
       }
     }
   },
