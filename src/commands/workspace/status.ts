@@ -1,16 +1,18 @@
-import { CustomCommand } from 'vtex'
+import { CustomCommand, ColorifyConstants } from 'vtex'
 import workspaceStatus from '../../modules/status'
 
 export default class WorkspaceStatus extends CustomCommand {
-  static description = 'Display information about a workspace'
+  static description = `Displays information about the specified ${ColorifyConstants.ID('workspace')}.`
 
-  static examples = ['vtex workspace status']
+  static examples = [`${ColorifyConstants.ID('vtex workspace status')}`]
 
   static flags = {
     ...CustomCommand.globalFlags,
   }
 
-  static args = [{ name: 'workspaceName', required: false }]
+  static args = [
+    { name: 'workspaceName', required: false, description: `Name of the ${ColorifyConstants.ID('workspace')}.` },
+  ]
 
   async run() {
     const {
