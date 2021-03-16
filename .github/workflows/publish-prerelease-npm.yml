@@ -16,6 +16,8 @@ jobs:
         with:
             node-version: 12
             registry-url: https://registry.npmjs.org/
+      - run: pwd
+      - run: ls -la
       - run: yarn install --force
       - run: yarn build
       - run: cat oclif.manifest.json
