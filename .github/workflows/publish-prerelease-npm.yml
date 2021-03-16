@@ -18,6 +18,7 @@ jobs:
             registry-url: https://registry.npmjs.org/
       - run: yarn install --ignore-scripts
       - run: yarn build
+      - run: cat oclif.manifest.json
       - run: npm publish --access=public --tag beta
         env:
             NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
