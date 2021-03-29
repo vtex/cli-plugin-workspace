@@ -93,6 +93,7 @@
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "version": "oclif-dev readme && git add README.md"
   },
+  "types": "lib/index.d.ts",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
