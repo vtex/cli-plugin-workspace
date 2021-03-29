@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-workspace",
   "description": "vtex plugin workspace",
-  "version": "1.0.18-beta",
+  "version": "1.0.19-beta",
   "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
   "dependencies": {
     "ramda": "^0.27.1",
