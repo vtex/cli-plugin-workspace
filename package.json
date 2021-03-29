@@ -56,18 +56,17 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/build",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json",
-    "/yarn.lock"
+    "/lib",
+    "/oclif.manifest.json"
   ],
+  "main": "lib/index.js",
   "homepage": "https://github.com/vtex/cli-plugin-workspace",
   "keywords": [
     "oclif-plugin"
   ],
   "license": "MIT",
   "oclif": {
-    "commands": "./build/commands",
+    "commands": "./lib/commands",
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
