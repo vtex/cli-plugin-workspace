@@ -1,37 +1,45 @@
 {
   "name": "@vtex/cli-plugin-workspace",
   "description": "vtex plugin workspace",
-  "version": "1.0.10-beta",
+  "version": "1.0.8-beta",
   "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
   "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/color": "^0.x",
+    "@oclif/config": "^1",
     "ramda": "^0.27.1",
-    "tslib": "^1"
+    "@oclif/color": "^0.x",
+    "@oclif/command": "^1.5.12",
+    "@oclif/errors": "^1.2.2",
+    "chalk": "^4.1.0",
+    "cli-ux": "^5.2.1",
+    "debug": "^4.1.0",
+    "fs-extra": "^9.0",
+    "http-call": "^5.2.2",
+    "load-json-file": "^5.2.0",
+    "npm-run-path": "^4.0.1",
+    "semver": "^7.3.2",
+    "tslib": "^2.0.0",
+    "yarn": "^1.21.1"
   },
   "devDependencies": {
-    "@oclif/config": "^1.12.11",
-    "@oclif/dev-cli": "^1.21.3",
-    "@oclif/plugin-help": "^3.1.0",
-    "@oclif/test": "^1.2.4",
-    "@types/chai": "^4.1.7",
-    "@types/fs-extra": "^9.0",
-    "@types/mocha": "^8.0.0",
-    "@types/node": "^14.14.16",
-    "@types/semver": "^7.3.1",
-    "@types/supports-color": "^7.2.0",
-    "chai": "^4.2.0",
-    "eslint": "^7.3.1",
-    "eslint-config-oclif": "^3.1.0",
-    "eslint-config-oclif-typescript": "^0.2.0",
-    "fancy-test": "^1.4.1",
-    "globby": "^11.0.1",
-    "mocha": "^8.2.1",
-    "nock": "^13.0.3",
-    "ts-node": "^9.0.0",
-    "typescript": "3.8.3",
-    "vtex": "^2.121.0-beta.1",
-    "lint-staged": "^10.2.11"
+    "@oclif/dev-cli": "^1",
+    "@oclif/plugin-help": "^3",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "@types/ramda": "^0.27.14",
+    "eslint": "^6.8.0",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-vtex": "^12.3.0",
+    "globby": "^10",
+    "husky": "^4.2.5",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.2",
+    "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
+    "prettier": "^2.0.1",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8",
+    "typescript": "^3.8.2",
+    "vtex": "2.111.2-beta"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -74,6 +82,11 @@
     "preversion": "yarn run clean",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "version": "oclif-dev readme && git add README.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{ts,js,tsx,jsx}": [
