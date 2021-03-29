@@ -1,20 +1,16 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "lib": ["es2018"],
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "build",
-    "rootDir": "src",
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "outDir": "./lib",
+    "pretty": true,
+    "rootDirs": ["./src"],
     "strict": true,
-    "target": "es2018",
-    "types": ["node", "jest"]
+    "target": "es2017"
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/*.test.ts", "**/__tests__"]
+  "include": ["./src/**/*"]
 }

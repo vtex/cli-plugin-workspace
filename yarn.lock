@@ -648,7 +648,7 @@
     is-wsl "^2.1.1"
     tslib "^1.9.3"
 
-"@oclif/config@^1.16.0", "@oclif/config@^1.17.0":
+"@oclif/config@^1.12.11", "@oclif/config@^1.16.0", "@oclif/config@^1.17.0":
   version "1.17.0"
   resolved "https://registry.npmjs.org/@oclif/config/-/config-1.17.0.tgz#ba8639118633102a7e481760c50054623d09fcab"
   integrity sha512-Lmfuf6ubjQ4ifC/9bz1fSCHc6F6E653oyaRXxg+lgT4+bYf9bk+nqrUpAbrXyABkCqgIBiFr3J4zR/kiFdE1PA==
@@ -9084,7 +9084,7 @@ static-extend@^0.1.1, static-extend@^0.1.2:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-"stats-lite@github:vtex/node-stats-lite#dist":
+stats-lite@vtex/node-stats-lite#dist:
   version "2.2.0"
   resolved "https://codeload.github.com/vtex/node-stats-lite/tar.gz/1b0d39cc41ef7aaecfd541191f877887a2044797"
   dependencies:
