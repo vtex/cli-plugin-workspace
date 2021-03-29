@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/1.0.1-beta darwin-x64 node-v14.15.3
+@vtex/cli-plugin-workspace/1.0.3-beta linux-x64 node-v12.21.0
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -47,7 +47,7 @@ USAGE
 
 ## `oclif-example workspace:delete WORKSPACE1 [ITHWORKSPACE]`
 
-Deletes one or many [38;2;139;195;74mworkspaces[39m from the current [38;2;139;195;74maccount[39m.
+Deletes one or many workspaces from the current account.
 
 ```
 USAGE
@@ -69,11 +69,11 @@ EXAMPLES
   vtex workspace delete workspaceName1 workspaceName2
 ```
 
-_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/delete.ts)_
+_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/delete.ts)_
 
 ## `oclif-example workspace:list`
 
-Lists all [38;2;139;195;74mworkspaces[39m of the current [38;2;139;195;74maccount[39m.
+Lists all workspaces of the current account.
 
 ```
 USAGE
@@ -92,11 +92,11 @@ EXAMPLES
   vtex workspace ls
 ```
 
-_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/list.ts)_
+_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/list.ts)_
 
 ## `oclif-example workspace:promote`
 
-Promotes the current [38;2;139;195;74mworkspace[39m to master. (Only works for [38;2;139;195;74mproduction workspaces[39m.) Run [38;2;255;71;133mvtex promote --help[39m to see how to deal with data conflicts.
+Promotes the current workspace to master. (Only works for production workspaces.) Run vtex promote --help to see how to deal with data conflicts.
 
 ```
 USAGE
@@ -126,11 +126,11 @@ EXAMPLES
   vtex promote
 ```
 
-_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/promote.ts)_
+_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/promote.ts)_
 
 ## `oclif-example workspace:reset [WORKSPACENAME]`
 
-Cleans all configurations of a [38;2;139;195;74mworkspace[39m and recreates it with the configurations from master. If not specified which [38;2;139;195;74mworkspace[39m, it defaults to the current one.
+Cleans all configurations of a workspace and recreates it with the configurations from master. If not specified which workspace, it defaults to the current one.
 
 ```
 USAGE
@@ -151,11 +151,11 @@ EXAMPLES
   vtex workspace reset workspaceName
 ```
 
-_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/reset.ts)_
+_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/reset.ts)_
 
 ## `oclif-example workspace:status [WORKSPACENAME]`
 
-Displays information about the specified [38;2;139;195;74mworkspace[39m.
+Displays information about the specified workspace.
 
 ```
 USAGE
@@ -173,11 +173,11 @@ EXAMPLE
   vtex workspace status
 ```
 
-_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/status.ts)_
+_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/status.ts)_
 
 ## `oclif-example workspace:use WORKSPACE`
 
-Creates and switches to a new [38;2;139;195;74mworkspace[39m or simply switches to an existing one.
+Creates and switches to a new workspace or simply switches to an existing one.
 
 ```
 USAGE
@@ -201,5 +201,5 @@ EXAMPLES
   vtex use workspaceName
 ```
 
-_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.1-beta/build/commands/workspace/use.ts)_
+_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.0.3-beta/build/commands/workspace/use.ts)_
 <!-- commandsstop -->
