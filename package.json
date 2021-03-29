@@ -56,8 +56,8 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/lib",
-    "/oclif.manifest.json"
+    "oclif.manifest.json",
+    "/lib"
   ],
   "main": "lib/index.js",
   "homepage": "https://github.com/vtex/cli-plugin-workspace",
