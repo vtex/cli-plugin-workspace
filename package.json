@@ -66,7 +66,7 @@
     "pretest": "yarn build --noEmit && tsc -p test --noEmit",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "posttest": "yarn lint",
-    "prepublishOnly": "yarn run build && oclif-dev manifest && oclif-dev readme",
+    "prepublishOnly": "yarn run build && oclif-dev manifest && oclif-dev readme && cat oclif.manifest.json",
     "postpublish": "cat oclif.manifest.json && yarn run clean",
     "preversion": "yarn run clean",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
