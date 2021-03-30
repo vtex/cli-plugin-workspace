@@ -75,7 +75,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn build && oclif-dev manifest && git add oclif.manifest.json"
+      "pre-commit": "lint-staged && yarn build && yarn oclif-dev manifest && git add oclif.manifest.json"
     }
   },
   "lint-staged": {
