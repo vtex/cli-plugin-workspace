@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-workspace",
   "description": "vtex plugin workspace",
-  "version": "1.0.0",
+  "version": "1.0.1-beta1",
   "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
   "dependencies": {
     "@oclif/command": "^1",
