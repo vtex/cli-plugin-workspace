@@ -96,7 +96,7 @@ _See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin
 
 ## `oclif-example workspace:promote`
 
-Promotes the current workspace to master. (Only works for production workspaces.) Run vtex promote --help to see how to deal with data conflicts.
+Promotes the current workspace to master. (Only works for production workspaces.) Run [38;5;205mvtex promote --help to see how to deal with data conflicts.
 
 ```
 USAGE
