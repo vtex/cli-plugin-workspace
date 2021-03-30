@@ -44,15 +44,10 @@
   "license": "MIT",
   "oclif": {
     "commands": "./build/commands",
-    "bin": "oclif-example",
+    "bin": "vtex",
     "devPlugins": [
       "@oclif/plugin-help"
-    ],
-    "topics": {
-      "workspace": {
-        "description": "Manages workspaces. Run 'vtex workspace' to see all 9 subcommands."
-      }
-    }
+    ]
   },
   "repository": "vtex/cli-plugin-workspace",
   "scripts": {
