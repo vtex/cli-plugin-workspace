@@ -1,28 +1,22 @@
 {
-  "name": "@vtex/cli-plugin-workspace",
-  "description": "vtex plugin workspace",
-  "version": "1.0.19-beta",
-  "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
+  "name": "@vtex/cli-plugin-whoami",
+  "description": "vtex plugin whoami",
+  "version": "0.2.0",
+  "bugs": "https://github.com/vtex/cli-plugin-whoami/issues",
   "dependencies": {
-    "ramda": "^0.27.1",
-    "@oclif/color": "^0.x",
-    "@oclif/command": "^1.5.12",
-    "@oclif/errors": "^1.2.2",
-    "chalk": "^4.1.0",
-    "cli-ux": "^5.2.1",
-    "debug": "^4.1.0",
-    "fs-extra": "^9.0",
-    "http-call": "^5.2.2",
-    "load-json-file": "^5.2.0",
-    "npm-run-path": "^4.0.1",
-    "semver": "^7.3.2",
-    "tslib": "^2.0.0",
-    "yarn": "^1.21.1"
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "tslib": "^1"
   },
   "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/plugin-help": "^3",
     "@types/jest": "^26.0.3",
-    "@types/ramda": "^0.27.14",
+    "@types/node": "^14.0.14",
+    "eslint": "^6.8.0",
+    "eslint-config-oclif": "^3.1",
     "eslint-config-vtex": "^12.3.0",
+    "globby": "^10",
     "husky": "^4.2.5",
     "jest": "^25.1.0",
     "lint-staged": "^10.2.11",
@@ -30,69 +24,48 @@
     "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
     "prettier": "^2.0.1",
     "ts-jest": "^25.2.1",
-    "@oclif/config": "^1.12.11",
-    "@oclif/dev-cli": "^1.21.3",
-    "@oclif/plugin-help": "^3.1.0",
-    "@oclif/test": "^1.2.4",
-    "@types/chai": "^4.1.7",
-    "@types/fs-extra": "^9.0",
-    "@types/mocha": "^8.0.0",
-    "@types/node": "^14.14.16",
-    "@types/semver": "^7.3.1",
-    "@types/supports-color": "^7.2.0",
-    "chai": "^4.2.0",
-    "eslint": "^7.3.1",
-    "eslint-config-oclif": "^3.1.0",
-    "eslint-config-oclif-typescript": "^0.2.0",
-    "fancy-test": "^1.4.1",
-    "globby": "^11.0.1",
-    "mocha": "^8.2.1",
-    "nock": "^13.0.3",
-    "ts-node": "^9.0.0",
-    "typescript": "3.8.3",
-    "vtex": "^3.3.4-beta"
+    "ts-node": "^8",
+    "typescript": "^3.8.2",
+    "vtex": "^2.115.0"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
-    "oclif.manifest.json",
-    "/lib"
+    "/build",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/yarn.lock"
   ],
-  "main": "lib/index.js",
-  "homepage": "https://github.com/vtex/cli-plugin-workspace",
+  "homepage": "https://github.com/vtex/cli-plugin-whoami",
   "keywords": [
     "oclif-plugin"
   ],
   "license": "MIT",
   "oclif": {
-    "commands": "./lib/commands",
-    "bin": "oclif-example",
+    "commands": "./build/commands",
+    "bin": "vtex",
     "devPlugins": [
       "@oclif/plugin-help"
-    ],
-    "topics": {
-      "workspace": {
-        "description": "Manages workspaces. Run 'vtex workspace' to see all 9 subcommands."
-      }
-    }
+    ]
   },
-  "repository": "vtex/cli-plugin-workspace",
+  "repository": "vtex/cli-plugin-whoami",
   "scripts": {
-    "lint": "eslint . --ext .ts --config .eslintrc",
-    "pretest": "yarn build --noEmit && tsc -p test --noEmit",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
-    "posttest": "yarn lint",
-    "prepack": "yarn build && oclif-dev manifest && cat oclif.manifest.json",
+    "build-clean": "rm -rf build",
+    "build-incremental": "tsc --incremental",
+    "build": "yarn build-clean && yarn tsc && OCLIF_COMPILATION=true yarn oclif-dev manifest",
+    "ci:prettier-check": "prettier --check --config ./.prettierrc \"./src/**/*.{ts,tsx,js,jsx,json}\"",
+    "ci:test": "yarn test --ci",
+    "format-lint": "yarn format && yarn lint",
+    "format": "prettier --config ./.prettierrc --write \"**/*.{ts,js,json}\"",
+    "lint": "eslint ./src --cache --ext .ts --config .eslintrc",
     "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf build && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepublishOnly": "bash ./scripts/publishLock.sh",
+    "test": "jest --passWithNoTests",
     "version": "oclif-dev readme && git add README.md",
-    "build": "rm -rf lib && tsc"
-  },
-  "types": "lib/index.d.ts",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "watch": "yarn build-clean && yarn nodemon"
   },
   "lint-staged": {
     "*.{ts,js,tsx,jsx}": [
