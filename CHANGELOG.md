@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Command `vtex workspace promote` error about missing `boxen` dependency.
+- Command `vtex workspace promote` error about missing `boxen` and `ora` dependency.
 
 ## [1.0.1] - 2021-03-30
 
