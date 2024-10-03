@@ -13,8 +13,9 @@ import {
   workspaceUse,
   COLORS,
 } from 'vtex'
+import { MineWinsConflictsResolver } from '@vtex/api'
 
-const { checkForConflicts } = VBase.createClient()
+const vbase = VBase.createClient()
 const { promote, get } = createWorkspacesClient()
 const { account, workspace: currentWorkspace } = SessionManager.getSingleton()
 const workspaceUrl = authUrl()
@@ -26,11 +27,17 @@ const throwIfIsMaster = (workspace: string) => {
 }
 
 const handleConflict = async () => {
-  const conflictsFound = await checkForConflicts()
+  const conflictsFound = await vbase.checkForConflicts()
 
   if (conflictsFound) {
     await axios.get(workspaceUrl)
   }
+
+  // @vtex/api expects a full implementation of the client, so we need to cast it to any.
+  // The partial implementation is enough to solve conflicts.
+  const conflictsResolver = new MineWinsConflictsResolver((vbase as Partial<VBase>) as any, 'userData', '')
+
+  await conflictsResolver.resolveAll()
 }
 
 const isPromotable = async (workspace: string) => {
