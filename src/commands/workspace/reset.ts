@@ -14,7 +14,7 @@ export default class WorkspaceReset extends CustomCommand {
     `${ColorifyConstants.COMMAND_OR_VTEX_REF('vtex workspace reset')} workspaceName`,
   ]
 
-  static flags = {
+  static flags: oclifFlags.Input<any> = {
     ...CustomCommand.globalFlags,
     production: oclifFlags.boolean({
       char: 'p',

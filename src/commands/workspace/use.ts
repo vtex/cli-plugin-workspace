@@ -14,7 +14,7 @@ export default class WorkspaceUse extends CustomCommand {
 
   static aliases = ['use']
 
-  static flags = {
+  static flags: oclifFlags.Input<any> = {
     ...CustomCommand.globalFlags,
     production: oclifFlags.boolean({
       char: 'p',

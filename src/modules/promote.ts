@@ -8,14 +8,18 @@ import {
   SessionManager,
   logger,
   promptConfirm,
-  VBase,
   authUrl,
   workspaceUse,
   COLORS,
 } from 'vtex'
+
+import { VBase } from 'vtex-latest'
 import { MineWinsConflictsResolver } from '@vtex/api'
 
-const vbase = VBase.createClient()
+const vbase = VBase.createClient(undefined, {
+  timeout: 120 * 1000,
+})
+
 const { promote, get } = createWorkspacesClient()
 const { account, workspace: currentWorkspace } = SessionManager.getSingleton()
 const workspaceUrl = authUrl()
@@ -32,10 +36,6 @@ const throwIfIsMaster = (workspace: string) => {
  All conflicts resolved here is using a mineWins strategy at the content json level.
 */
 const handleConflict = async () => {
-  const conflictsFoundForPagesGraphql = await vbase.checkForConflicts()
-
-  if (!conflictsFoundForPagesGraphql) return
-
   // Forcing rebase to avoid conflicts
   await axios.get(workspaceUrl)
 

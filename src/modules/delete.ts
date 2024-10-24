@@ -1,4 +1,4 @@
-import { Workspaces } from '@vtex/api'
+import { Workspaces } from 'vtex/node_modules/@vtex/api/lib/clients/Workspaces'
 import chalk from 'chalk'
 import { contains, flatten, tail } from 'ramda'
 import { createWorkspacesClient, SessionManager, logger, promptConfirm, workspaceUse } from 'vtex'
