@@ -8,13 +8,18 @@ import {
   SessionManager,
   logger,
   promptConfirm,
-  VBase,
   authUrl,
   workspaceUse,
   COLORS,
 } from 'vtex'
 
-const { checkForConflicts } = VBase.createClient()
+import { VBase } from 'vtex-latest'
+import { MineWinsConflictsResolver } from '@vtex/api'
+
+const vbase = VBase.createClient(undefined, {
+  timeout: 120 * 1000,
+})
+
 const { promote, get } = createWorkspacesClient()
 const { account, workspace: currentWorkspace } = SessionManager.getSingleton()
 const workspaceUrl = authUrl()
@@ -25,12 +30,20 @@ const throwIfIsMaster = (workspace: string) => {
   }
 }
 
+/* This function is very specific to solve conflicts in the pages graphql app.
+ The primary conflict resolution strategy at the file level
+ is insufficient for safely resolving conflicts in the pages GraphQL application.
+ All conflicts resolved here is using a mineWins strategy at the content json level.
+*/
 const handleConflict = async () => {
-  const conflictsFound = await checkForConflicts()
+  // Forcing rebase to avoid conflicts
+  await axios.get(workspaceUrl)
 
-  if (conflictsFound) {
-    await axios.get(workspaceUrl)
-  }
+  // @vtex/api expects a full implementation of the client, so we need to cast it to any.
+  // The partial implementation is enough to solve conflicts.
+  const conflictsResolver = new MineWinsConflictsResolver((vbase as Partial<VBase>) as any, 'userData', '')
+
+  return conflictsResolver.resolveAll()
 }
 
 const isPromotable = async (workspace: string) => {

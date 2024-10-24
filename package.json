@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-workspace",
   "description": "vtex plugin workspace",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
   "dependencies": {
     "@oclif/command": "^1",
@@ -28,7 +28,9 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.8.2",
-    "vtex": "2.111.2-beta"
+    "vtex-latest": "npm:vtex@4.2.0",
+    "vtex": "npm:vtex@2.111.2-beta",
+    "@vtex/api": "npm:@vtex/api@6.48.0"
   },
   "engines": {
     "node": ">=8.0.0"

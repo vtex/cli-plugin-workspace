@@ -13,7 +13,7 @@ export default class WorkspaceDelete extends CustomCommand {
     `${ColorifyConstants.COMMAND_OR_VTEX_REF('vtex workspace delete')} workspaceName1 workspaceName2`,
   ]
 
-  static flags = {
+  static flags: oclifFlags.Input<any> = {
     ...CustomCommand.globalFlags,
     force: oclifFlags.boolean({
       char: 'f',
