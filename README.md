@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/1.0.1 linux-x64 node-v12.21.0
+@vtex/cli-plugin-workspace/1.0.1 linux-x64 node-v12.22.12
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -96,7 +96,7 @@ _See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin
 
 ## `oclif-example workspace:promote`
 
-Promotes the current workspace to master. (Only works for production workspaces.) Run [38;5;205mvtex promote --help to see how to deal with data conflicts.
+Promotes the current workspace to master. (Only works for production workspaces.) Run mvtex promote --help to see how to deal with data conflicts.
 
 ```
 USAGE
