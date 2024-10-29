@@ -10,10 +10,10 @@ import {
   promptConfirm,
   authUrl,
   workspaceUse,
+  VBase,
   COLORS,
 } from 'vtex'
 
-import { VBase } from 'vtex-latest'
 import { MineWinsConflictsResolver } from '@vtex/api'
 
 const vbase = VBase.createClient(undefined, {

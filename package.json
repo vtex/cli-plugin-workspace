@@ -1,13 +1,16 @@
 {
   "name": "@vtex/cli-plugin-workspace",
   "description": "vtex plugin workspace",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "bugs": "https://github.com/vtex/cli-plugin-workspace/issues",
   "dependencies": {
-    "@oclif/command": "^1",
+    "@oclif/command": "^1.8.0",
     "@oclif/config": "^1",
     "ramda": "^0.27.1",
-    "tslib": "^1"
+    "ora": "4.0.4",
+    "boxen": "4.2.0",
+    "tslib": "^1",
+    "@vtex/api": "npm:@vtex/api@6.48.0"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
@@ -26,11 +29,9 @@
     "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
     "prettier": "^2.0.1",
     "ts-jest": "^25.2.1",
+    "vtex": "^4.2.0",
     "ts-node": "^8",
-    "typescript": "^3.8.2",
-    "vtex-latest": "npm:vtex@4.2.0",
-    "vtex": "npm:vtex@2.111.2-beta",
-    "@vtex/api": "npm:@vtex/api@6.48.0"
+    "typescript": "^3.8.2"
   },
   "engines": {
     "node": ">=8.0.0"
