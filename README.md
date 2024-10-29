@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-workspace
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-workspace/1.1.0 linux-x64 node-v12.22.12
+@vtex/cli-plugin-workspace/1.2.0 linux-x64 node-v12.22.12
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -59,17 +59,17 @@ ARGUMENTS
 
 OPTIONS
   -f, --force    Deletes the specified workspace even if it is currently in use.
-  -h, --help     show CLI help
-  -v, --verbose  Show debug level logs
+  -h, --help     Shows this help message.
+  -v, --verbose  Shows debug level logs.
   -y, --yes      Answers yes to all prompts.
-  --trace        Ensure all requests to VTEX IO are traced
+  --trace        Ensures all requests to VTEX IO are traced.
 
 EXAMPLES
   vtex workspace delete workspaceName
   vtex workspace delete workspaceName1 workspaceName2
 ```
 
-_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/delete.ts)_
+_See code: [build/commands/workspace/delete.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/delete.ts)_
 
 ## `oclif-example workspace:list`
 
@@ -80,9 +80,9 @@ USAGE
   $ oclif-example workspace:list
 
 OPTIONS
-  -h, --help     show CLI help
-  -v, --verbose  Show debug level logs
-  --trace        Ensure all requests to VTEX IO are traced
+  -h, --help     Shows this help message.
+  -v, --verbose  Shows debug level logs.
+  --trace        Ensures all requests to VTEX IO are traced.
 
 ALIASES
   $ oclif-example workspace:ls
@@ -92,7 +92,7 @@ EXAMPLES
   vtex workspace ls
 ```
 
-_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/list.ts)_
+_See code: [build/commands/workspace/list.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/list.ts)_
 
 ## `oclif-example workspace:promote`
 
@@ -104,10 +104,10 @@ USAGE
 
 OPTIONS
   -h, --help
-      show CLI help
+      Shows this help message.
 
   -v, --verbose
-      Show debug level logs
+      Shows debug level logs.
 
   --conflict=master|mine|abort
       [default: master] Defines how to handle data conflict between workspaces.
@@ -116,7 +116,7 @@ OPTIONS
       - abort: Aborts the workspace promotion in case of data conflict.
 
   --trace
-      Ensure all requests to VTEX IO are traced
+      Ensures all requests to VTEX IO are traced.
 
 ALIASES
   $ oclif-example promote
@@ -126,7 +126,7 @@ EXAMPLES
   vtex promote
 ```
 
-_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/promote.ts)_
+_See code: [build/commands/workspace/promote.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/promote.ts)_
 
 ## `oclif-example workspace:reset [WORKSPACENAME]`
 
@@ -140,18 +140,18 @@ ARGUMENTS
   WORKSPACENAME  Name of the workspace to reset.
 
 OPTIONS
-  -h, --help        show CLI help
+  -h, --help        Shows this help message.
   -p, --production  Recreates the workspace as a production one.
-  -v, --verbose     Show debug level logs
+  -v, --verbose     Shows debug level logs.
   -y, --yes         Answers yes to all prompts.
-  --trace           Ensure all requests to VTEX IO are traced
+  --trace           Ensures all requests to VTEX IO are traced.
 
 EXAMPLES
   vtex workspace reset
   vtex workspace reset workspaceName
 ```
 
-_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/reset.ts)_
+_See code: [build/commands/workspace/reset.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/reset.ts)_
 
 ## `oclif-example workspace:status [WORKSPACENAME]`
 
@@ -165,15 +165,15 @@ ARGUMENTS
   WORKSPACENAME  Name of the workspace.
 
 OPTIONS
-  -h, --help     show CLI help
-  -v, --verbose  Show debug level logs
-  --trace        Ensure all requests to VTEX IO are traced
+  -h, --help     Shows this help message.
+  -v, --verbose  Shows debug level logs.
+  --trace        Ensures all requests to VTEX IO are traced.
 
 EXAMPLE
   vtex workspace status
 ```
 
-_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/status.ts)_
+_See code: [build/commands/workspace/status.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/status.ts)_
 
 ## `oclif-example workspace:use WORKSPACE`
 
@@ -187,11 +187,11 @@ ARGUMENTS
   WORKSPACE  Name of the workspace
 
 OPTIONS
-  -h, --help        show CLI help
+  -h, --help        Shows this help message.
   -p, --production  Creates and/or switches to a production workspace.
   -r, --reset       Resets the workspace before switching to it.
-  -v, --verbose     Show debug level logs
-  --trace           Ensure all requests to VTEX IO are traced
+  -v, --verbose     Shows debug level logs.
+  --trace           Ensures all requests to VTEX IO are traced.
 
 ALIASES
   $ oclif-example use
@@ -201,5 +201,5 @@ EXAMPLES
   vtex use workspaceName
 ```
 
-_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.1.0/build/commands/workspace/use.ts)_
+_See code: [build/commands/workspace/use.ts](https://github.com/vtex/cli-plugin-workspace/blob/v1.2.0/build/commands/workspace/use.ts)_
 <!-- commandsstop -->
