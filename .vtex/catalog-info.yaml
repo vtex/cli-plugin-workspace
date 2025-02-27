@@ -12,6 +12,7 @@ metadata:
     grafana/dashboard-selector: ""
     github.com/project-slug: vtex/cli-plugin-workspace
     backstage.io/techdocs-ref: dir:../
+    vtex.com/application-id: QWSFPS1U
 spec:
   lifecycle: stable
   owner: apps
