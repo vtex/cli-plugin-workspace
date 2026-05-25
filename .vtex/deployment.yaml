@@ -1,5 +1,5 @@
 - name: cli-plugin-workspace
-  referenceId: PLACEHOLDER
+  referenceId: QWSFPS1U
   build:
     provider: dkcicd
     pipelines:
